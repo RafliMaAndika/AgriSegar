@@ -1,0 +1,693 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+    animation: slideInDown 0.5s ease-out;
+}
+
+.navbar.scrolled {
+    background-color: #222;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo{
+    width: 50px; /* Atur ukuran logo */
+    height: auto; /* Pertahankan rasio aspek */
+    display: block;
+}
+
+.logo a:hover {
+    color: #5cb85c;
+}
+
+/* Menu Toggle Styles */
+.menu-toggle {
+    display: none; /* Default: hidden on larger screens */
+    flex-direction: column;
+    cursor: pointer;
+    gap: 0.3rem;
+}
+
+.menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    transition: 0.3s;
+}
+
+/* Mobile Menu Styles */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+.nav-links li {
+    margin: 0;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+    animation: fadeIn 1s ease-out;
+}
+
+.nav-links a:hover {
+    color: #5cb85c;
+}
+
+.close-btn {
+    display: none;
+}
+
+button {
+    padding: 6px 12px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 15px;
+    margin: 0 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-login {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.btn-login:hover {
+    background-color: #0056b3;
+}
+
+.btn-signup {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.btn-signup:hover {
+    background-color: #218838;
+}
+
+/* Pop-up styling */
+.popup-container {
+    display: none; /* Tetap tersembunyi sampai diaktifkan */
+    position: fixed;
+    padding: 2000px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Menempatkan popup di tengah */
+    background-color: rgba(0, 0, 0, 0.5); /* Transparansi background */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Memastikan popup muncul di depan */
+}
+
+.popup-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    width: 350px;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2); /* Bayangan di tengah */
+    position: relative; /* Agar close button dapat diposisikan relatif terhadap popup-content */
+    animation: slideIn 0.5s ease forwards;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 25px;
+    cursor: pointer;
+    color: #333;
+}
+
+
+input[type="text"], input[type="email"], input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 15px 0;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    outline: none;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus {
+    border-color: #007bff;
+}
+
+.btn-submit {
+    padding: 12px;
+    width: 100%;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #218838;
+}
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex; /* Show on mobile */
+    }
+    
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 250px; /* Adjust width as needed */
+        height: 100%;
+        background-color: #333;
+        color: #fff;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 60px; /* Adjust padding to align with navbar */
+        box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        z-index: 999; /* Ensure it's above other content */
+    }
+    
+    .nav-links.active {
+        transform: translateX(0);
+    }
+    
+    .nav-links a {
+        padding: 1rem;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        width: 100%;
+        color: #fff;
+        font-size: 1.2rem; /* Adjust font size for better readability */
+        animation: fadeIn 1s ease-out;
+    }
+
+    .nav-links a:hover {
+        background-color: #444;
+    }
+}
+
+/* Hero Section */
+.hero {
+    background-image: url(https://i.pinimg.com/564x/94/70/68/9470687bdb58a5a031edd07e364c75dd.jpg); /* Replace with actual image URL */
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    z-index: 2; /* Ensure content is above the overlay */
+    position: relative;
+    animation: fadeIn 1.5s ease-out;
+}
+
+.hero h1 {
+    font-size: 3rem; /* Adjust font size as needed */
+    font-weight: bold;
+    margin-bottom: 1rem;
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero p {
+    font-size: 1.2rem; /* Adjust font size as needed */
+    margin-bottom: 2rem;
+    animation: fadeInUp 1.5s ease-out;
+}
+
+.btn-primary {
+    background-color: #5cb85c;
+    color: #fff;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+}
+
+.btn-primary:hover {
+    background-color: #4cae4c;
+    transform: scale(1.05);
+}
+
+/* Hero Section Overlay */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Dark overlay for better text visibility */
+    z-index: 1;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInDown {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+}
+
+/* About Section */
+.about {
+    background-color: #fff; /* Warna latar belakang yang bersih */
+    padding: 4rem 1rem;
+    position: relative;
+    overflow: hidden;
+    /* Menambahkan gambar latar belakang jika diinginkan */
+    /* background-image: url('about-bg.jpg'); */
+    /* background-size: cover; */
+    /* background-position: center; */
+}
+
+.about .container {
+    position: relative;
+    z-index: 2;
+}
+
+.about-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+    animation: fadeInUp 1s ease-out;
+}
+
+.about h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: #5cb85c; /* Warna hijau segar untuk judul tambahan */
+    animation: fadeInUp 1.2s ease-out;
+}
+
+.about p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 2rem;
+    animation: fadeInUp 1.5s ease-out;
+}
+
+/* Button Style */
+.btn-primary {
+    background-color: #5cb85c;
+    color: #fff;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+    animation: scaleIn 0.5s ease-out;
+}
+
+.btn-primary:hover {
+    background-color: #4cae4c;
+    transform: scale(1.05);
+}
+
+/* Achievements Section */
+.achievements {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin: 2rem 0;
+    padding: 0 1rem;
+}
+
+.achievement {
+    flex: 1 1 30%;
+    background-color: #f4f4f4;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.achievement i {
+    font-size: 3rem;
+    color: #5cb85c;
+    margin-bottom: 1rem;
+}
+
+.achievement h4 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.achievement p {
+    font-size: 1rem;
+    color: #666;
+}
+
+.achievement:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Optional: Adding decorative elements */
+.about::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.6); /* Light overlay for readability */
+    z-index: 1;
+}
+
+/* Add shadows or additional effects */
+.about-content {
+    position: relative;
+    z-index: 2;
+}
+
+.about h2, .about h3, .about p {
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1); /* Adding subtle text shadow */
+}
+
+/* Services Section */
+.services{
+    text-align: center; /* Menyelaraskan semua teks di dalam bagian kontak ke tengah */
+    padding: 4rem 1rem; /* Padding untuk ruang tambahan di sekitar */
+    background-color: #f9f9f9; /* Warna latar belakang yang lembut */
+}
+
+.services h2 {
+    font-size: 2.5rem; /* Ukuran font yang besar */
+    margin-bottom: 1rem; /* Ruang bawah yang cukup */
+}
+
+.services p {
+    font-size: 1.1rem; /* Ukuran font yang lebih kecil dari h2 */
+    margin-bottom: 2rem; /* Ruang bawah yang lebih besar */
+}
+
+.services .service-items {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    text-align: center;
+}
+
+.services .service-item {
+    background-color: #fff;
+    padding: 2rem;
+    margin: 1rem;
+    flex: 1 1 30%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards;
+    text-align: center;
+}
+
+/* Contact Section */
+.contact {
+    text-align: center; /* Menyelaraskan semua teks di dalam bagian kontak ke tengah */
+    padding: 4rem 1rem; /* Padding untuk ruang tambahan di sekitar */
+    background-color: #f9f9f9; /* Warna latar belakang yang lembut */
+}
+
+.contact h2 {
+    font-size: 2.5rem; /* Ukuran font yang besar */
+    margin-bottom: 1rem; /* Ruang bawah yang cukup */
+}
+
+.contact p {
+    font-size: 1.1rem; /* Ukuran font yang lebih kecil dari h2 */
+    margin-bottom: 2rem; /* Ruang bawah yang lebih besar */
+}
+
+.contact form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Menyelaraskan semua item form ke tengah */
+    max-width: 600px; /* Lebar maksimal form */
+    margin: 0 auto; /* Menyelaraskan form ke tengah */
+    padding: 1rem; /* Padding tambahan di sekitar form */
+}
+
+.contact input, .contact textarea {
+    width: 100%; /* Mengambil lebar penuh form */
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.contact input:focus, .contact textarea:focus {
+    border-color: #5cb85c;
+    outline: none;
+}
+
+.contact button {
+    background-color: #5cb85c;
+    color: #fff;
+    padding: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 1rem; /* Ruang atas tambahan untuk tombol */
+    width: 100%; /* Menyelaraskan tombol dengan lebar form */
+}
+
+/* Team Section */
+.team {
+    background-color: #f9f9f9;
+    padding: 4rem 1rem;
+    text-align: center;
+}
+
+.team h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    /* Menghapus animasi */
+    /* animation: fadeInUp 1s ease-out; */
+}
+
+.team-members {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    /* Menghapus animasi */
+    /* animation: fadeInUp 1s ease-out; */
+}
+
+.team-member {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex: 1 1 30%;
+    text-align: center;
+    opacity: 1; /* Memastikan elemen terlihat */
+    /* Menghapus animasi */
+    /* animation: fadeInUp 1s ease-out forwards; */
+    transition: transform 0.3s ease;
+}
+
+.team-member img {
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+.team-member h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.team-member p {
+    font-size: 1rem;
+    color: #666; /* Ubah warna sesuai kebutuhan */
+}
+
+/* Footer Section */
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.footer-info {
+    margin-bottom: 1rem;
+}
+
+.footer-info h3 {
+    margin-bottom: 0.5rem;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footer-links-column {
+    flex: 1;
+}
+
+.footer-links-column h4 {
+    margin-bottom: 0.5rem;
+}
+
+.footer-links-column ul {
+    list-style: none;
+}
+
+.footer-links-column ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-links-column a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links-column a:hover {
+    color: #5cb85c;
+}
+
+.footer-bottom {
+    margin-top: 1rem;
+    border-top: 1px solid #444;
+    padding-top: 1rem;
+}
+
+.footer-bottom a {
+    color: #5cb85c;
+    text-decoration: none;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInDown {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes rotateIn {
+    from { transform: rotate(-200deg); opacity: 0; }
+    to { transform: rotate(0); opacity: 1; }
+}
+
+/* Apply Scale In Animation */
+.scale-in {
+    animation: scaleIn 0.5s ease-out;
+}
+
+/* Apply Rotate In Animation */
+.rotate-in {
+    animation: rotateIn 0.5s ease-out;
+}
+
+/* Apply Fade In Animation for Section Titles */
+.section-title {
+    animation: fadeInUp 1s ease-out;
+}
+
+/* Apply Fade In Animation for Service Items */
+.service-item {
+    animation: fadeInUp 1s ease-out;
+}
+
+/* Apply Fade In Animation for Team Members */
+.team-member {
+    animation: fadeInUp 1s ease-out;
+}
