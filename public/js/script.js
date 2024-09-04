@@ -8,6 +8,20 @@ window.addEventListener('scroll', function() {
     }
 });
 
+// Get all the navigation links
+const navLinks = document.querySelectorAll('.nav-links li a');
+
+// Add click event listener to each link
+navLinks.forEach(link => {
+    link.addEventListener('click', function () {
+        // Remove 'active' class from all links
+        navLinks.forEach(nav => nav.classList.remove('active'));
+        // Add 'active' class to the clicked link
+        this.classList.add('active');
+    });
+});
+
+
 // script.js
 // Get elements
 const loginBtn = document.getElementById('loginBtn');
@@ -36,6 +50,21 @@ heroBtn.addEventListener('click', () => {
 // Close login popup
 closeLoginPopup.addEventListener('click', () => {
     loginPopup.style.display = 'none';
+});
+
+// Function to switch between forms based on selected tab
+document.querySelectorAll('.tab-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const target = button.getAttribute('data-tab');
+        document.querySelectorAll('.signup-form').forEach(form => {
+            form.style.display = form.getAttribute('data-tab-content') === target ? 'block' : 'none';
+        });
+    });
+});
+
+// Event listener for closing the signup popup
+document.getElementById('closeSignupPopup').addEventListener('click', () => {
+    document.getElementById('signupPopup').style.display = 'none';
 });
 
 // Close signup popup
