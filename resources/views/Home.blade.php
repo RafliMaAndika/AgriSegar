@@ -22,10 +22,12 @@
                 <span class="bar"></span>
             </div>
             <ul class="nav-links" id="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#team">Our Team</a></li>
+                <li><a href="#">Home</a></li>
+                <li><a href="services.blade.php">Services</a></li>
+                <li><a href="#team">About us</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><a href="#contact">Blog</a></li>
+                <li><a href="#contact">Career</a></li>
                 <li><button id="loginBtn" class="btn-login">Masuk</button>
                 <li><button id="signupBtn" class="btn-signup">Daftar</button>
             </ul>
@@ -54,12 +56,50 @@
             <span class="close-btn" id="closeSignupPopup">&times;</span>
             <h2>Join Us!</h2>
             <p>Create a new account</p>
-            <form id="signupForm">
-                <input type="text" placeholder="Full Name" required>
+    
+            <!-- Tabs for different categories -->
+            <div class="signup-tabs">
+                <button class="tab-btn" data-tab="petani">Petani</button>
+                <button class="tab-btn" data-tab="petaniKelompok">Petani Kelompok</button>
+                <button class="tab-btn" data-tab="perusahaan">Perusahaan</button>
+            </div>
+    
+            <!-- Form for Petani -->
+            <form id="formPetani" class="signup-form" data-tab-content="petani">
+                <input type="text" placeholder="Nama" required>
+                <input type="tel" placeholder="No HP" required>
                 <input type="email" placeholder="Email" required>
-                <input type="password" placeholder="Password" required>
+                <input type="password" placeholder="password" required>
+                <input type="text" placeholder="Komoditas" required>
+                <input type="text" placeholder="Lokasi" required>
+                <input type="text" placeholder="Luas Lahan" required>
                 <button type="submit" class="btn-submit">Sign Up</button>
             </form>
+    
+            <!-- Form for Petani Kelompok -->
+            <form id="formPetaniKelompok" class="signup-form" data-tab-content="petaniKelompok" style="display: none;">
+                <input type="text" placeholder="Nama" required>
+                <input type="text" placeholder="Nama Kelompok Tani" required>
+                <input type="tel" placeholder="No HP" required>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="password" required>
+                <input type="text" placeholder="Lokasi" required>
+                <button type="submit" class="btn-submit">Sign Up</button>
+            </form>
+    
+            <!-- Form for Perusahaan -->
+            <form id="formPerusahaan" class="signup-form" data-tab-content="perusahaan" style="display: none;">
+                <input type="text" placeholder="Nama" required>
+                <input type="text" placeholder="Bidang Usaha" required>
+                <input type="text" placeholder="Komoditas yang Dibutuhkan" required>
+                <input type="text" placeholder="Produk Olahan" required>
+                <input type="tel" placeholder="No HP" required>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="password" required>
+                <input type="text" placeholder="Lokasi Usaha" required>
+                <button type="submit" class="btn-submit">Sign Up</button>
+            </form>
+    
             <p>Sudah punya akun? <a href="#" id="openLogin">Sign In</a></p>
         </div>
     </div>
@@ -105,23 +145,26 @@
     </div>
 </section>
 
-
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="container">
-            <h2>Our Services</h2>
-            <div class="service-items">
-                <div class="service-item">
-                    <h3>Agri Mart</h3>
-                    <p>Solusi yang kami miliki untuk memastikan hasil tani tetap segar saat dikonsumsi oleh konsumen</p>
-                </div>
-                <div class="service-item">
-                    <h3>Agri Hub</h3>
-                    <p>Kami menyediakan hub yang siap menampung seluruh hasil tani dari petani kemudian mendistribusikannya kepada mitra-mitra kami</p>
-                </div>
+<!-- Services Section -->
+<section id="services" class="services">
+    <div class="container">
+        <h2>Our Services</h2>
+        <div class="service-items">
+            <!-- Service Item 1 -->
+            <div class="service-item">
+                <h3>Agri Mart</h3>
+                <p>Solusi yang kami miliki untuk memastikan hasil tani tetap segar saat dikonsumsi oleh konsumen.</p>
+                <a href="services.blade.php">Pelajari selengkapnya &gt;</a>
+            </div>
+            <!-- Service Item 2 -->
+            <div class="service-item">
+                <h3>Agri Hub</h3>
+                <p>Kami menyediakan hub yang siap menampung seluruh hasil tani dari petani kemudian mendistribusikannya kepada mitra-mitra kami.</p>
+                <a href="services.blade.php">Pelajari selengkapnya &gt;</a>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
 <!-- Team Section -->
 <section id="team" class="team">
