@@ -9,12 +9,12 @@
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    background-color: #f4f4f4;
+    background-color: #ffffff;
 }
 
 /* Navbar */
 .navbar {
-    background-color: #333;
+    background-color: #ffffff;
     color: #fff;
     padding: 1rem;
     position: fixed;
@@ -26,7 +26,7 @@ body {
 }
 
 .navbar.scrolled {
-    background-color: #222;
+    background-color: #ffffff;
 }
 
 .navbar .container {
@@ -76,11 +76,22 @@ body {
 }
 
 .nav-links a {
-    color: #fff;
+    color: #000000;
     text-decoration: none;
     font-size: 1rem;
     transition: color 0.3s ease;
     animation: fadeIn 1s ease-out;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #5cb85c /* Color on hover */
+}
+
+/* Active link styles */
+.nav-links li a.active {
+    color: #5cb85c; /* Active link color */
+    border-bottom: 2px solid #5cb85c; /* White underline */
 }
 
 .nav-links a:hover {
@@ -115,6 +126,17 @@ button {
     color: #fff;
 }
 
+.tab-btn {
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+    background-color: #f0f0f0;
+    transition: background-color 0.3s;
+}
+.tab-btn:hover {
+    background-color: #ddd;
+}
+
 .btn-signup:hover {
     background-color: #218838;
 }
@@ -131,6 +153,7 @@ button {
     justify-content: center;
     align-items: center;
     z-index: 1000; /* Memastikan popup muncul di depan */
+    gap: 1 rem;
 }
 
 .popup-content {
@@ -138,10 +161,26 @@ button {
     padding: 30px;
     border-radius: 15px;
     text-align: center;
-    width: 350px;
+    width: 500px;
     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2); /* Bayangan di tengah */
     position: relative; /* Agar close button dapat diposisikan relatif terhadap popup-content */
     animation: slideIn 0.5s ease forwards;
+}
+
+/* Compact form styles */
+.signup-form {
+    display: none;
+    margin: 10px 0; /* Adjusts spacing around the form */
+}
+
+.signup-form input {
+    display: block;
+    width: 100%;
+    padding: 8px 10px; /* Adjust padding for more compact input fields */
+    margin: 5px 0; /* Reduces margin between input fields */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 
 .close-btn {
@@ -154,7 +193,7 @@ button {
 }
 
 
-input[type="text"], input[type="email"], input[type="password"] {
+input[type="text"],input[type="tel"], input[type="email"], input[type="password"] {
     width: 100%;
     padding: 12px 15px;
     margin: 15px 0;
@@ -166,7 +205,7 @@ input[type="text"], input[type="email"], input[type="password"] {
     transition: border-color 0.3s ease;
 }
 
-input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus {
+input[type="text"],input[type="tel"], input[type="email"], input[type="password"]:focus {
     border-color: #007bff;
 }
 
@@ -198,7 +237,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
         right: 0;
         width: 250px; /* Adjust width as needed */
         height: 100%;
-        background-color: #333;
+        background-color: #ffffff;
         color: #fff;
         transform: translateX(100%);
         transition: transform 0.3s ease;
@@ -219,7 +258,7 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
         text-align: center;
         text-decoration: none;
         width: 100%;
-        color: #fff;
+        color: #000000;
         font-size: 1.2rem; /* Adjust font size for better readability */
         animation: fadeIn 1s ease-out;
     }
@@ -436,27 +475,30 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
 }
 
 /* Services Section */
-.services{
-    text-align: center; /* Menyelaraskan semua teks di dalam bagian kontak ke tengah */
-    padding: 4rem 1rem; /* Padding untuk ruang tambahan di sekitar */
-    background-color: #f9f9f9; /* Warna latar belakang yang lembut */
+/* Services Section */
+.services {
+    text-align: center; /* Align all text within the section to the center */
+    padding: 4rem 1rem; /* Adds padding around the section */
+    background-color: #f9f9f9; /* Soft background color */
 }
 
 .services h2 {
-    font-size: 2.5rem; /* Ukuran font yang besar */
-    margin-bottom: 1rem; /* Ruang bawah yang cukup */
+    font-size: 2.5rem; /* Large font size for the heading */
+    margin-bottom: 1rem; /* Space below the heading */
+    color: #333; /* Darker color for readability */
 }
 
 .services p {
-    font-size: 1.1rem; /* Ukuran font yang lebih kecil dari h2 */
-    margin-bottom: 2rem; /* Ruang bawah yang lebih besar */
+    font-size: 1.1rem; /* Smaller font size for paragraph */
+    margin-bottom: 2rem; /* More space below paragraphs */
+    color: #666; /* Subtle text color */
 }
 
 .services .service-items {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 1rem; /* Gap between service items */
     text-align: center;
 }
 
@@ -464,13 +506,43 @@ input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focu
     background-color: #fff;
     padding: 2rem;
     margin: 1rem;
-    flex: 1 1 30%;
+    flex: 1 1 30%; /* Adjusts the size to fit three items in a row */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease, transform 0.3s ease;
-    opacity: 0;
-    animation: fadeInUp 1s ease-out forwards;
-    text-align: center;
+    opacity: 0; /* Initial opacity for the animation effect */
+    animation: fadeInUp 1s ease-out forwards; /* Fade-in animation */
+    text-align: center; /* Center align content within each service item */
+}
+
+.services .service-item:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+    transform: translateY(-5px); /* Slight lift effect on hover */
+}
+
+/* Service Links */
+.service-item a {
+    color: #5cb85c; /* Link color */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.service-item a:hover {
+    color: #3d8b3d; /* Slightly darker color on hover */
+}
+
+
+/* Keyframes for Fade In Up Animation */
+@keyframes fadeInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 /* Contact Section */
