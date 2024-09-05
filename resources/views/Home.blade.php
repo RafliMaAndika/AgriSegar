@@ -10,30 +10,32 @@
 <body>
    <!-- Navbar -->
    <nav class="navbar">
-        <div class="container">
-            <div class="logo">
-                <a href="#">
-                    <img src="img/agrisegar.png" alt="Logo" class="logo">
-                </a>
-            </div>
-            <div class="menu-toggle" id="menu-toggle">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-            <ul class="nav-links" id="nav-links">
-                <li><a href="#">Home</a></li>
-                <li><a href="services.blade.php">Services</a></li>
-                <li><a href="#team">About us</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="#contact">Blog</a></li>
-                <li><a href="#contact">Career</a></li>
-                <li><button id="loginBtn" class="btn-login">Masuk</button>
-                <li><button id="signupBtn" class="btn-signup">Daftar</button>
-            </ul>
+    <div class="container">
+        <div class="logo">
+            <a href="#">
+                <img src="img/agrisegar.png" alt="Logo" class="logo">
+            </a>
         </div>
-        <button class="close-btn" id="close-btn">&times;</li> <!-- Close button -->
-    </nav>
+        <div class="menu-toggle" id="menu-toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="services.blade.php">Services</a></li>
+            <li><a href="#team">About us</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#contact">Blog</a></li>
+            <li><a href="#contact">Career</a></li>
+            <li class="auth-buttons"> <!-- Wrapper untuk tombol -->
+                <button id="loginBtn" class="btn-login">Masuk</button>
+                <button id="signupBtn" class="btn-signup">Daftar</button>
+            </li>
+        </ul>
+    </div>
+    <button class="close-btn" id="close-btn">&times;</button> <!-- Close button -->
+</nav>
 
     <!-- Sign In Pop-up Container -->
     <div id="loginPopup" class="popup-container">
