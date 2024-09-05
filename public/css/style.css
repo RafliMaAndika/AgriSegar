@@ -60,7 +60,7 @@ body {
 .menu-toggle .bar {
     width: 25px;
     height: 3px;
-    background-color: #fff;
+    background-color: #000000;
     transition: 0.3s;
 }
 
@@ -113,12 +113,12 @@ button {
 }
 
 .btn-login {
-    background-color: #007bff;
-    color: #fff;
+    background-color: #b3e0af;
+    color: #28a745;
 }
 
 .btn-login:hover {
-    background-color: #0056b3;
+    background-color: #a6d3a2;
 }
 
 .btn-signup {
@@ -140,6 +140,14 @@ button {
 .btn-signup:hover {
     background-color: #218838;
 }
+
+@media (max-width: 768px) {
+    .nav-links .auth-buttons {
+      position: absolute;
+      top: 10px; /* Sesuaikan nilai top sesuai kebutuhan */
+      right: 40px; /* Sesuaikan nilai right sesuai kebutuhan */
+    }
+  }
 
 /* Pop-up styling */
 .popup-container {
@@ -228,9 +236,10 @@ input[type="text"],input[type="tel"], input[type="email"], input[type="password"
 /* Responsive Styles */
 @media (max-width: 768px) {
     .menu-toggle {
-        display: flex; /* Show on mobile */
+        display: flex; /* Show the menu toggle button on mobile */
+        color: #000;
     }
-    
+
     .nav-links {
         position: fixed;
         top: 0;
@@ -238,33 +247,46 @@ input[type="text"],input[type="tel"], input[type="email"], input[type="password"
         width: 250px; /* Adjust width as needed */
         height: 100%;
         background-color: #ffffff;
-        color: #fff;
         transform: translateX(100%);
         transition: transform 0.3s ease;
         flex-direction: column;
         align-items: center;
-        padding-top: 60px; /* Adjust padding to align with navbar */
-        box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-        z-index: 999; /* Ensure it's above other content */
+        padding-top: 60px; /* Adjust padding to align with the top */
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        z-index: 999; /* Ensures it's above other content */
     }
-    
+
     .nav-links.active {
-        transform: translateX(0);
+        transform: translateX(0); /* Show the menu when active */
     }
-    
+
     .nav-links a {
         padding: 1rem;
         display: block;
         text-align: center;
         text-decoration: none;
         width: 100%;
-        color: #000000;
-        font-size: 1.2rem; /* Adjust font size for better readability */
+        color: #000;
+        font-size: 1.2rem; /* Font size for readability */
         animation: fadeIn 1s ease-out;
     }
 
     .nav-links a:hover {
         background-color: #444;
+    }
+
+    /* Styling for Masuk and Daftar buttons in Mobile */
+    .nav-links .btn-container {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+        padding: 10px 0; /* Add padding to position at the top */
+    }
+
+    .btn-login,
+    .btn-signup {
+        margin: 0.5rem 0.5rem; /* Margin for spacing in mobile view */
     }
 }
 
@@ -655,7 +677,7 @@ input[type="text"],input[type="tel"], input[type="email"], input[type="password"
 
 /* Footer Section */
 .footer {
-    background-color: #333;
+    background-color: #28a745;
     color: #fff;
     padding: 2rem 1rem;
     text-align: center;
@@ -699,7 +721,7 @@ input[type="text"],input[type="tel"], input[type="email"], input[type="password"
 }
 
 .footer-links-column a:hover {
-    color: #5cb85c;
+    color: #b3e0af;
 }
 
 .footer-bottom {
@@ -709,8 +731,12 @@ input[type="text"],input[type="tel"], input[type="email"], input[type="password"
 }
 
 .footer-bottom a {
-    color: #5cb85c;
+    color: #fff;
     text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    color: #b3e0af;
 }
 
 /* Animations */
